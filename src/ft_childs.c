@@ -6,7 +6,7 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 22:33:58 by nerrakeb          #+#    #+#             */
-/*   Updated: 2023/01/22 02:46:27 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2023/01/22 03:43:10 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	ft_child2(int *fd, char **av, char **env)
 	if (output == -1)
 	{
 		perror(av[4]);
-		exit(127);
+		exit(1);
 	}
 	dup2(fd[0], STDIN_FILENO);
 	close(fd[1]);
