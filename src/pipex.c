@@ -6,17 +6,16 @@
 /*   By: nerrakeb <nerrakeb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 19:58:47 by nerrakeb          #+#    #+#             */
-/*   Updated: 2023/01/22 02:14:16 by nerrakeb         ###   ########.fr       */
+/*   Updated: 2023/01/22 02:59:46 by nerrakeb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/pipex.h"
 
-void	close_wait(int *fd, pid_t *pid, char **av)
+void	close_wait(int *fd, pid_t *pid)
 {
 	int	status;
 
-	(void) av;
 	close(fd[0]);
 	close(fd[1]);
 	waitpid(pid[0], NULL, 0);
@@ -49,6 +48,6 @@ int	main(int ac, char **av, char **env)
 	ft_check(pid[1]);
 	if (pid[1] == 0)
 		ft_child2(fd, av, env);
-	close_wait(fd, pid, av);
+	close_wait(fd, pid);
 	return (0);
 }
